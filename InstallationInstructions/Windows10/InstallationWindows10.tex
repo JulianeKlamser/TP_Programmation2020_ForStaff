@@ -95,7 +95,7 @@ Allez dans le menu Start et recherchez PowerShell. Exécutez-le en tant qu'admin
 Après l'ouverture du PowerShell, copiez et passez la ligne suivante dans le terminal PowerShell et appuyez sur entrée:
 
 \begin{tcolorbox}[width=\textwidth,colback={purple},title={PowerShell terminal},outer arc=0mm,colupper=white]    
-    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+    \large\textbf{ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux }
 \end{tcolorbox}
 Il vous sera demandé de confirmer votre choix. Tapez Y ou appuyez sur la touche Entrée :
 \begin{figure}[H]
@@ -125,26 +125,135 @@ Copiez et collez les commandes suivantes (l'une après l'autre) dans le terminal
 
 \begin{enumerate}
 \item commande:
-\begin{tcolorbox}[width=\textwidth,colback={blue},title={ubuntu terminal},outer arc=0mm,colupper=white]    
-    sudo apt-get update
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  sudo apt-get update }
 \end{tcolorbox}
 Vous devrez peut-être entrer votre Ubuntu-password. Vous devrez peut-être confirmer avec "Y". Attendez que l'installation soit terminée. 
 \item commande:
-\begin{tcolorbox}[width=\textwidth,colback={blue},title={ubuntu terminal},outer arc=0mm,colupper=white]    
-    sudo apt install g++
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  sudo apt install g++ }
 \end{tcolorbox}
 Vous devrez peut-être entrer votre Ubuntu-password. Vous devrez peut-être confirmer avec "Y". Attendez que l'installation soit terminée. 
 \item commande:
-\begin{tcolorbox}[width=\textwidth,colback={blue},title={ubuntu terminal},outer arc=0mm,colupper=white]    
-    sudo apt-get install libcairo2-dev
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  
+   \large\textbf{  sudo apt-get install libcairo2-dev }
 \end{tcolorbox}
 Vous devrez peut-être entrer votre Ubuntu-password. Vous devrez peut-être confirmer avec "Y". Attendez que l'installation soit terminée. 
 \item commande:
-\begin{tcolorbox}[width=\textwidth,colback={blue},title={ubuntu terminal},outer arc=0mm,colupper=white]    
-    sudo apt-get install gnuplot
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  sudo apt-get install gnuplot }
 \end{tcolorbox}
 Vous devrez peut-être entrer votre Ubuntu-password. Vous devrez peut-être confirmer avec "Y". Attendez que l'installation soit terminée. 
 \end{enumerate}
+
+\section{Gnuplot}
+Gnuplot est un logiciel qui sert à produire des représentations graphiques en deux ou trois dimensions de fonctions numériques ou de données. Il sera très utile pour tracer des données avec quelques lignes. 
+
+Avec la commande sudo apt-get install gnuplot, vous avez déjà installé un gnuplot, que vous pouvez utiliser dans la termina ubuntu. Cependant, si vous préférez une version graphique, ce qui pourrait être plus facile pour le début, vous pouvez télécharger et installer le logiciel à partir de ce site: \href{http://www.gnuplot.info/download.html}{http://www.gnuplot.info/download.html} 
+
+Si possible, choisissez les paramètres par défaut.
+
+\section{Installation d'un éditeur de code}
+Vous pouvez choisir l'éditeur de code que vous voulez. 
+\subsection{Notepad++}
+Une façon simple de commencer et d’utiliser Notepad++. Ce éditeur est léger est assez efficace, d'ici \href{https://notepad-plus-plus.org}{https://notepad-plus-plus.org}. Assurez-vous que vous installez une version compatible avec votre ordinateur.
+\begin{figure}[H]
+\center
+\includegraphics[width=0.4\textwidth]{Plots/Editor_1.jpg}
+%\caption{Resultat de pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make}
+\end{figure}
+\subsection{Visual Studio Code et Atom}
+Vous pouvez essayer atom \href{https://atom.io}{https://atom.io}\\
+ou bien Visual Studio Code \href{https://code.visualstudio.com/download}{https://code.visualstudio.com/download}
+
+Les deux éditeurs de code offrent une option qui vous permettent de travailler simultanément sur le même code avec quelqu'un. C'est très utile pour le projet final, lorsque vous travaillez avec un partenaire sur le même code. Cette fonction est appelée "Teletype" pour atom et "live share" pour Visual Studio Code.
+
+\section{Lançons votre premier code C.}
+Rendez-vous sur ce site \href{https://github.com/JulianeUta/MD2020/blob/master/MyFirstCode.zip}{https://github.com/JulianeUta/MD2020/blob/master/MyFirstCode.zip} et cliquez sur Download. Un dossier compressé avec votre premier code en C sera téléchargé. L'objectif est de compiler le code et de l'exécuter.
+\begin{figure}[H]
+\center
+\includegraphics[width=0.6\textwidth]{Plots/FirstCode_1.png}
+%\caption{Resultat de pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make}
+\end{figure}
+Supposons que vous ayez choisi de sauvegarder le dossier compressé dans votre dossier Documents. Ensuite, allez dans votre dossier Documents et faites un clic droit sur le dossier compressé MyFirstCCode, puis sélectionnez quelque chose comme "Extraire tout...".
+\begin{figure}[H]
+\center
+\includegraphics[width=0.6\textwidth]{Plots/FirstCode_2.jpg}
+%\caption{Resultat de pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make}
+\end{figure}
+Il devrait y avoir un dossier normal appelé MyFistCode. Allez dans ce dossier. Il y a peut-être un dossier appelé \_MACOSX.  Vous pouvez supprimer ce dossier \_MACOSX (car ce n'est qu'un artefact de la compression des dossiers sur un ordinateur avec un système d'exploitation différent). Ouvrez le fichier main.c avec Notepad++. C'est votre code. Il devrait ressembler à ceci. 
+\begin{figure}[H]
+\center
+\includegraphics[width=0.95\textwidth]{Plots/FirstCode_9.jpeg}
+%\caption{Resultat de pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make}
+\end{figure}
+Nous voulons maintenant compiler le code (traduire ces mots écrits en quelque chose qui puisse être interprété par l'ordinateur). {\color{Bittersweet}\textbf{Soyez attentifs, car c'est ce que vous ferez de manière extensive pendant ce TP.}}
+
+Faites un clic droit sur le dossier MyFirstCode et sélectionnez les propriétés. Nous devons connaître la localisation du dossier avec votre code. Dans l'exemple de la \fig{F:FindFolderAddress}, l'adresse dont nous avons besoin se trouve dans le carré bleu (voir \subfig{F:FindFolderAddress}{b}).
+\begin{figure}[H]
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.75\textwidth]{Plots/FirstCode_3Properties.jpg}
+\subcaption{clic droit sur MyFirstCode et sélectionnez les propriétés}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.75\textwidth]{Plots/FirstCode_4Path.jpg}
+\subcaption{Adresse du dossier MyFirstCode}
+\end{subfigure}
+\caption{Comment trouver l'adresse du dossier.\label{F:FindFolderAddress}}
+\end{figure}
+Nous utilisons les informations contenues dans le carré bleu et les convertissons en une adresse lisible pour le terminal ubuntu. \\
+À noter:
+\begin{enumerate}
+\item dans le terminal ubuntu \textbf{les noms de dossiers sont séparés par / {\color{Bittersweet}(barre oblique)}} et non par \textbackslash{} (barre oblique inversée).
+\item Votre terminal Ubuntu est un système indépendant sur votre ordinateur Windows. Lorsque vous accédez aux dossiers Windows, à partir de votre terminal Ubuntu, vous devez indiquer à Ubuntu qu'il doit regarder sur le système Windows. C'est pourquoi tous les chemins d'accès doivent commencer par /mnt/, ce qui signifie monté.
+\end{enumerate}
+Maintenant, nous traduisons le chemin indiqué dans le cadre bleu de la \subfig{F:FindFolderAddress}{b} (vous devez adapter votre chemin, avec votre version du cadre bleu). Dans le terminal Ubuntu, le chemin correspondant du dossier MyFirstCode est\\
+/mnt/c/Users/tsadhu/OneDrive/Documents/MyFirstCode\\
+
+Nous utilisons maintenant le terminal Ubuntu et naviguons vers ce dossier en tapant
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  cd /mnt/c/Users/tsadhu/OneDrive/Documents/MyFirstCode }
+\end{tcolorbox}
+Si vous tapez maintenant 
+%\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white] 
+      \large\textbf{ ls }
+\end{tcolorbox}
+ce qui signifie qu'il faut lister tous les fichiers de ce dossier (c'est bien un minuscule L et non un I majuscule). Vous devriez voir une sortie comme celle-ci (il y a deux fichiers: Makefile, et main.c).
+\begin{figure}[H]
+\center
+\includegraphics[width=0.9\textwidth]{Plots/FirstCode_5.jpeg}
+\end{figure}
+
+Pour compiler le code, que vous avez vu dans votre éditeur du code, tapez
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]   
+      \large\textbf{  make }
+\end{tcolorbox}
+
+Vous devriez voir une sortie comme celle-ci.
+\begin{figure}[H]
+\center
+\includegraphics[width=0.9\textwidth]{Plots/FirstCode_6.jpeg}
+\end{figure}
+Si vous tapez maintenant 
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white] 
+      \large\textbf{  ls }
+\end{tcolorbox}
+Vous devriez voir une sortie comme celle-ci. Il existe deux autres fichiers, main.o et main (sans « .o » ou « .c » ). main est écrit dans une langue que l'ordinateur peut interpréter et exécuter. C'est ce que l'on appelle l'exécutable.
+ \begin{figure}[H]
+\center
+\includegraphics[width=0.9\textwidth]{Plots/FirstCode_7.jpeg}
+\end{figure}
+Pour exécuter le main, tapez
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  
+      \large\textbf{  ./main }
+\end{tcolorbox}
+Vous devriez voir une sortie comme celle-ci. 
+\begin{figure}[H]
+\center
+\includegraphics[width=0.9\textwidth]{Plots/FirstCode_8.jpeg}
+\end{figure}
+Il s'agit de la sortie du code. Si vous voyez ce résultat, alors félicitations à vous. Vous êtes maintenant prêt à commencer le TP.
 
 \section{Installation Xming}
 Téléchargez Xming à partir de ce site \href{https://sourceforge.net/projects/xming/}{https://sourceforge.net/projects/xming/}. Démarrez l'installation. Le "Windows defender Firewall" vous demandera les droits d'accès : "ALLOW ACCESS" (AUTORISER L'ACCÈS). Suivez l'installation avec tous les paramètres par défaut (ne changez aucune option).
@@ -155,38 +264,34 @@ Allez à la page suivante et cliquez sur "Download" : \\ \href{https://github.co
 Si nécessaire, dézippez le dossier et placez-le dans un dossier approprié, par exemple dans le dossier appelé Documents. Si vous l'avez placé dans Documents, vous pouvez suivre les instructions, sinon, faites les changements appropriés dans le chemin du dossier.
 
 Ouvrez votre terminal ubuntu et tapez
-\begin{tcolorbox}[width=\textwidth,colback={blue},title={ubuntu terminal},outer arc=0mm,colupper=white]    
-    cd /mnt/c/Users/Ubuntu-Username/Documents/MDFlexibleBoxSizeAndRadius/
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  cd /mnt/c/Users/Ubuntu-Username/Documents/MDFlexibleBoxSizeAndRadius/ }
 \end{tcolorbox}
 et confirmez avec ENTRÉE.
 
 Tapez maintenant la commande suivante et confirmez avec ENTER :
-\begin{tcolorbox}[width=\textwidth,colback={blue},title={ubuntu terminal},outer arc=0mm,colupper=white]    
-    export DISPLAY=:0
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  export DISPLAY=:0 }
 \end{tcolorbox}
 
 Tapez maintenant la commande suivante et confirmez avec ENTER :
-\begin{tcolorbox}[width=\textwidth,colback={blue},title={ubuntu terminal},outer arc=0mm,colupper=white]    
-    make
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  make }
 \end{tcolorbox}
 
 Tapez maintenant la commande suivante et confirmez avec ENTER :
-\begin{tcolorbox}[width=\textwidth,colback={blue},title={ubuntu terminal},outer arc=0mm,colupper=white]    
-    ./start
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  
+   \large\textbf{   ./start }
 \end{tcolorbox}
 
 Une fenêtre de Xming devrait s'ouvrir. Vous devriez voir un carré vert avec deux particules rouges à l'intérieur et un petit compteur blanc en bas à droite qui augmente.
 
 Si la fenêtre XMing ne s'ouvre pas : allez à START, cherchez l'application XMing et ouvrez l'application. Retournez au terminal ubuntu, appuyez sur les touches ctrl + c et tapez à nouveau
-\begin{tcolorbox}[width=\textwidth,colback={blue},title={ubuntu terminal},outer arc=0mm,colupper=white]    
-    ./start
+\begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{./start}
 \end{tcolorbox}
 Si vous ne voyez pas la fenêtre Xming avec les deux cercles rouges, contactez \href{mailto:example@example.com}{juliane.klamser@espci.psl.eu}.
 
-\section{Installation d'un éditeur de code}
-Vous pouvez choisir l'éditeur de code que vous voulez. Vous pouvez envisager d'utiliser Visual Studio Code, car il est largement utilisé dans l'industrie. Il offre des fonctionnalités qui vous permettent de travailler simultanément sur le même code avec quelqu'un. C'est très utile pour le projet final, lorsque vous travaillez avec un partenaire sur le même code. Cette fonction est appelée "live share". 
-
-Attention, téléchargez "Visual Studio \textbf{Code}" et non "Visual Studio".
 
 
 %\bibliographystyle{unsrt}  
