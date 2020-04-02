@@ -63,7 +63,7 @@ Pour toute question, veuillez contacter\\
 \newpage
 \section{Remarques générales}
 Il existe de nombreux compilateurs C souvent gratuits (même le compilateur de MicroSoft est gratuit), nous vous proposons d'installer GCC le compilateur de GNU parce qu'il existe sur presque toutes les machines et les systèmes d'exploitation. Coder c'est bien, on peut presque tout faire, mais utiliser le travail des autres c'est encore mieux. Au-delà du compilateur, il est très commode de pouvoir bénéficier de très nombreuses librairies que d'autres, beaucoup plus courageux que vous, ont écrites. En fait, ces librairies sont en permanence améliorées et elles dépendent les unes des autres, les recopier et les garder compatibles entre elles est un challenge. 
-Heureusement il existe des logiciels qui vous permettent de conserver et d'étendre une chaîne de compilation et de librairies à jour sans trop souffrir. C'est particulièrement vrai sur Linux où ils se nomment \textbf{apt-get}. Sur Windows c'était beaucoup moins simple, mais il existe aujourd'hui de nombreuses solutions qui vous permet de retrouver l’environnement style Linux. Dans ce document, vous trouverez les étapes nécessaires pour installer un sous-système Windows pour Linux (Windows Subsystem for Linux $=$ WSL), qui est une couche de compatibilité permettant d'exécuter des exécutables binaires Linux (au format ELF) de manière native sur Windows 10 et Windows Server 2019.  Au final, vous disposerez, espérons-le, d'un terminal en ligne de commande, appelé terminal Ubuntu.
+Heureusement il existe des logiciels qui vous permettent de conserver et d'étendre une chaîne de compilation et de librairies à jour sans trop souffrir. C'est particulièrement vrai sur Linux où ils se nomment \textbf{apt-get}. Sur Windows c'était beaucoup moins simple, mais il existe aujourd'hui de nombreuses solutions qui vous permet de retrouver l’environnement style Linux. Dans ce document, vous trouverez les étapes nécessaires pour installer un sous-système Windows pour Linux (Windows Subsystem for Linux $=$ WSL), qui est une couche de compatibilité permettant d'exécuter des exécutables binaires Linux de manière native sur Windows 10.  Au final, vous disposerez d'un terminal en ligne de commande, appelé terminal Ubuntu.
 
 Le terminal Ubuntu pour Windows possède un grand nombre de caractéristiques que vous trouverez en utilisant le terminal sur Ubuntu :
 \begin{itemize}
@@ -112,7 +112,7 @@ Après l'ouverture du PowerShell, copiez et passez la ligne suivante dans le ter
 \begin{tcolorbox}[width=\textwidth,colback={purple},title={PowerShell terminal},outer arc=0mm,colupper=white]    
     \large\textbf{ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux }
 \end{tcolorbox}
-Il vous sera demandé de confirmer votre choix. Tapez Y ou appuyez sur la touche Entrée :
+Il vous sera demandé de confirmer votre choix. Tapez Y ou appuyez sur la touche ENTER :
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{Plots/Powershell-Ubuntu-install-2.jpg}
 %\caption{Preparation of Kaspersky settings.}
@@ -194,7 +194,7 @@ Les deux éditeurs de code offrent une option qui vous permettent de travailler 
 Rendez-vous sur ce site \href{https://github.com/JulianeUta/TP_Programmation2020_ForStudents/blob/master/MyFirstCode.zip}{https://github.com/JulianeUta/TP\_Programmation2020\_ForStudents/blob/master/MyFirstCode.zip} et cliquez sur Download. Un dossier compressé avec votre premier code en C sera téléchargé. L'objectif est de compiler le code et de l'exécuter.
 \begin{figure}[H]
 \center
-\includegraphics[width=0.6\textwidth]{Plots/FirstCode_1.png}
+\includegraphics[width=0.7\textwidth]{Plots/FirstCode_1.png}
 %\caption{Resultat de pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make}
 \end{figure}
 Supposons que vous ayez choisi de sauvegarder le dossier compressé dans votre dossier Documents. Ensuite, allez dans votre dossier Documents et faites un clic droit sur le dossier compressé MyFirstCode, puis sélectionnez quelque chose comme "Extraire tout...".
@@ -296,7 +296,7 @@ Il devrait ressembler à ceci
 \center
 \includegraphics[width=0.9\textwidth]{Plots/MD_1EXPORT.jpeg}
 \end{figure}
-{\color{Bittersweet}\textbf{Si vous travaillez plus tard avec ce code, vous devez répéter cette étape (export DISPLAY=:0) à chaque fois, lorsque vous rouvrez le terminal ubuntu.}}
+{\color{Bittersweet}\textbf{Si vous travaillez plus tard avec ce code, vous devez répéter cette étape (export DISPLAY=:0) à chaque fois, lorsque vous rouvrez le terminal ubuntu. Si vous ne le faites pas, la fenêtre graphique avec l'animation ne s'ouvrira pas.}}
 
 Maintenant, répétez les étapes décrites au chapitre \ref{S:GoToFolder}, pour naviguer le terminal à l'intérieur du dossier « MDFlexBoxRadiusMass ». Notez que si vous avez déjà utilisé cd /path/to/folder/, vous n'êtes peut-être pas dans le répertoire d'origine. Avec la commande pwd, vous pouvez voir dans quel dossier se trouve le terminal ubuntu en ce moment.
 \begin{tcolorbox}[width=\textwidth,colframe=BurntOrange,colback={black},title={ubuntu terminal},outer arc=0mm,colupper=white]  

@@ -59,33 +59,33 @@ Pour toute question, veuillez contacter\\
 
 % keywords can be removed
 %\keywords{First keyword \and Second keyword \and More}
-
+\newpage
 \section{Installer les outils de la ligne de commande}
 \subsection{La solution la plus simple: Installation Xcode}
-Si vous installez Xcode, vous pouvez utiliser Xcode comme éditeur de code. Vous n'avez pas besoin d'installer d'autres logiciels pour éditer les codes.
+Si vous installez Xcode, vous pouvez également utiliser Xcode comme éditeur de code aussi. Vous n'avez pas besoin d'installer d'autres logiciels pour éditer les codes.
 Allez sur l'App Store et cherchez Xcode. Téléchargez et installez cette application.
 \begin{figure}[H]
 \center
 \includegraphics[width=0.75\textwidth]{Plots/AppStoreXcode.png}
 %\caption{Choisissez la version qui est compatible avec votre ordinateur.}
 \end{figure}
-\subsection{Installation sans Xcode}
-Il est possible que vous ne soyez pas en mesure d'installer Xcode ou que vous ne souhaitiez pas l'installer.  Dans le premier cas, vous pouvez envisager de \textbf{mettre à jour votre système d'exploitation} (cliquez sur la pomme dans la barre de menu -> à propos de ce Mac -> overview -> mise à jour). Une fois votre système mis à jour, vous n'aurez probablement plus de problèmes pour télécharger Xcode. En outre, cela permet d'éviter d'autres problèmes dans ce qui suit.
+\subsection{Installation sans Xcode\label{S:CommandLineWithoutX}}
+Il est possible que vous ne soyez pas en mesure d'installer Xcode ou que vous ne souhaitiez pas l'installer.  Dans le premier cas, vous pouvez envisager de \textbf{mettre à jour votre système d'exploitation} (voir \href{https://www.apple.com/fr/macos/how-to-upgrade/}{https://www.apple.com/fr/macos/how-to-upgrade/}). Une fois que votre système est à jour, vous n'aurez probablement plus de problèmes pour télécharger Xcode.  En outre, cela permet d'éviter d'autres problèmes dans ce qui suit.
 
 Si vous ne pouvez ou ne voulez vraiment pas installer Xcode, procédez comme suit:\\
-Vous pouvez installer les outils de la ligne de commande sans Xcode. Pour cela, vous devez lancer l'application appelée Terminal. Cette application se trouve dans /Applications/Utilitaires/. Vous pouvez également la rechercher avec "Spotlight" (cmd + espace ou loupe dans le coin supérieur droit de la barre de menu).
+Vous pouvez installer les outils de la ligne de commande sans Xcode. Pour cela, vous devez lancer l'application appelée Terminal. Cette application se trouve dans /Applications/Utilitaires/. Vous pouvez également la rechercher avec "Spotlight" (cmd + espace ou loupe dans le coin supérieur droit de la barre de menu). Voir aussi \href{https://fr.wikihow.com/ouvrir-le-Terminal-sur-un-Mac}{https://fr.wikihow.com/ouvrir-le-Terminal-sur-un-Mac}.
 \begin{figure}[H]
 \begin{subfigure}[c]{0.5\textwidth}
 \includegraphics[width=1\textwidth]{Plots/Terminal.png}
-\subcaption{Applications/Utilitaires/}
+\subcaption{Applications/Utilitaires/ Voir aussi \href{https://fr.wikihow.com/ouvrir-le-Terminal-sur-un-Mac}{https://fr.wikihow.com/ouvrir-le-Terminal-sur-un-Mac}.}
 \end{subfigure}
 \begin{subfigure}[c]{0.5\textwidth}
 \includegraphics[width=1\textwidth]{Plots/Terminal2.png}
 \subcaption{C'est votre terminal, qui pourrait vous sembler un peu différent. Vous pouvez modifier les paramètres de couleur et de police, pour cela, voir \fig{Sub:T3}.}
 \end{subfigure}
 \center
-\begin{subfigure}[c]{0.5\textwidth}
-\includegraphics[width=0.8\textwidth]{Plots/Terminal3.png}
+\begin{subfigure}[c]{0.6\textwidth}
+\includegraphics[width=1.\textwidth]{Plots/Terminal3.png}
 \subcaption{Modifiez les paramètres de couleur et de caractères de votre terminal. Barre de menu $\rightarrow$ terminal $\rightarrow$ propriétés $\rightarrow$ profil. Vous devez définir votre profil comme standard. \label{Sub:T3}}
 \end{subfigure}
 \caption{Le terminal se trouve dans /Applications/Utilitaires/. Vous pouvez également la rechercher avec "Spotlight" (cmd + espace ou loupe dans le coin supérieur droit de la barre de menu). L'image est en allemand ;) \label{F:HowToFindTerminal}}
@@ -93,7 +93,7 @@ Vous pouvez installer les outils de la ligne de commande sans Xcode. Pour cela, 
 
 
 
-Vous devez copier-coller la commande suivante dans le terminal et confirmer la commande avec ENTRÉE.
+Vous devez copier-coller la commande suivante dans le terminal et confirmer la commande avec ENTER. \textbf{Notez que vous ne pouvez vous déplacer entre les lettres qu'avec les touches fléchées de votre clavier. } Si vous utilisez les flèches haut et bas de votre clavier, vous pouvez naviguer entre les commandes que vous avez utilisées dans le passé dans le terminal.
 \begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]    
       \large\textbf{xcode-select --install}
 \end{tcolorbox}
@@ -122,21 +122,21 @@ ou bien Visual Studio Code \href{https://code.visualstudio.com/download}{https:/
 
 Les deux éditeurs de code offrent une option qui vous permettent de travailler simultanément sur le même code avec quelqu'un. C'est très utile pour le projet final, lorsque vous travaillez avec un partenaire sur le même code. Cette fonction est appelée "Teletype" pour atom et "live share" pour Visual Studio Code. 
 
-\section{Installation Xquartz \label{S:InstallXquatz}}
-Plus tard, nous aurons besoin de Xquartz, qui permet de faire de la visualisation graphique avec vos codes.
+\section{Installation XQuartz \label{S:InstallXquatz}}
+Plus tard, nous aurons besoin de XQuartz, qui permet de faire de la visualisation graphique avec vos codes.
 Veuillez télécharger le logiciel ici (utilisez les paramètres par défaut si possible) : \href{https://www.xquartz.org}{https://www.xquartz.org}.
 \section{Installation Gnuplot}
 Gnuplot est un logiciel qui sert à produire des représentations graphiques en deux ou trois dimensions de fonctions numériques ou de données. Il sera très utile pour tracer des données avec quelques lignes.
 \subsection{Installation de homebrew}
 Homebrew est un logiciel de gestion de paquets pour macOS gratuit et open-source écrit en ruby. Son but est de simplifier l'installation de programme. Nous l'utiliserons pour installer gnuplot.
 
-Vous devez lancer l'application appelée Terminal (voir \fig{F:HowToFindTerminal}).
+Vous devez lancer l'application appelée Terminal (voir \fig{F:HowToFindTerminal} dans chapitre \ref{S:CommandLineWithoutX}).
 
-Vous devez copier-coller la commande suivante dans le terminal et confirmer la commande avec ENTER.
+Vous devez copier-coller la commande suivante dans le terminal et confirmer la commande avec ENTER. \textbf{Notez que vous ne pouvez vous déplacer entre les lettres qu'avec les touches fléchées de votre clavier. } Si vous utilisez les flèches haut et bas de votre clavier, vous pouvez naviguer entre les commandes que vous avez utilisées dans le passé dans le terminal.
 \begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]    
       \large\textbf{ruby -e "\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null}
 \end{tcolorbox}
-Il vous sera peut-être demandé d'entrer votre mot de passe, veuillez entrer le mot de passe d'utilisateur de votre Mac pour continuer. Lorsque vous tapez le mot de passe, il ne s'affiche pas à l'écran, mais le système l'accepte. Il vous suffit donc de taper votre mot de passe et d'appuyer sur la touche ENTER/RETOUR. Attendez ensuite que la commande se termine.
+Il vous sera peut-être demandé d'entrer votre mot de passe, veuillez entrer le mot de passe d'utilisateur de votre Mac pour continuer. Lorsque vous tapez le mot de passe, il ne s'affiche pas à l'écran, mais le système l'accepte. Il vous suffit donc de taper votre mot de passe et d'appuyer sur la touche ENTER. Attendez ensuite que la commande se termine.
 \subsection{Mise à jour du homebrew}
 Nous devons d'abord nous assurer que l'homebrew est à jour.
 Vous devez copier-coller la commande suivante dans le terminal et confirmer la commande avec ENTER. Cela peut prendre un certain temps avant de se terminer.
@@ -148,19 +148,19 @@ Maintenant, copiez-collez la commande suivante dans le terminal, confirmer la co
       \large\textbf{brew upgrade}
 \end{tcolorbox}
 \subsection{Installation Gnuplot via homebew}
-Pour installer des paquets avec home-brew, vous utilisez toujours la syntaxe brew install <nom du paquet>. Pour installer gnuplot, copiez-collez la commande suivante dans le terminal, confirmez avec entrée et attendez la fin de l'installation.
+Pour installer des paquets avec home-brew, vous utilisez toujours la syntaxe brew install <nom du paquet>. Pour installer gnuplot, copiez-collez la commande suivante dans le terminal, confirmez avec ENTER et attendez la fin de l'installation.
 \begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]    
       \large\textbf{brew install gnuplot}
 \end{tcolorbox}
 \subsection{Vérifiez que l'installation est réussie.}
 Pour vérifier si l'installation a réussi, copiez-collez la commande suivante dans le terminal, confirmez avec ENTRÉE.
 \begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]    
-      \large\textbf{gnuplot --version}
+      \large\textbf{gnuplot $--$version}
 \end{tcolorbox}
 Votre résultat devrait ressembler à ceci (Dans cet exemple, la version de gnuplot est 5.2.)
 \begin{figure}[H]
 \center
-\includegraphics[width=0.6\textwidth]{Plots/GnuplotCheck.png}
+\includegraphics[width=0.7\textwidth]{Plots/GnuplotCheck.png}
 \end{figure}
 \subsection{Troubleshooting}
 Si vous avez un problème pour installer gnuplot via le terminal, veuillez vous rendre sur ce site \href{https://csml-wiki.northwestern.edu/index.php/Binary_versions_of_Gnuplot_for_OS_X}{https://csml-wiki.northwestern.edu/index.php/Binary\_versions\_of\_Gnuplot\_for\_OS\_X}, cliquez sur Installer Gnuplot et suivez les instructions d'installation avec les paramètres par défaut.
@@ -170,7 +170,7 @@ Si vous avez un problème pour installer gnuplot via le terminal, veuillez vous 
 Rendez-vous sur ce site \href{https://github.com/JulianeUta/TP_Programmation2020_ForStudents/blob/master/MyFirstCode.zip}{https://github.com/JulianeUta/TP\_Programmation2020\_ForStudents/blob/master/MyFirstCode.zip} et cliquez sur Download. Un dossier compressé avec votre premier code en C sera téléchargé. L'objectif est de compiler le code et de l'exécuter.
 \begin{figure}[H]
 \center
-\includegraphics[width=0.6\textwidth]{Plots/FirstCode_1.png}
+\includegraphics[width=0.7\textwidth]{Plots/FirstCode_1.png}
 %\caption{Resultat de pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make}
 \end{figure}
 Le dossier se trouvera dans votre dossier de téléchargements, voir ci-dessous.
@@ -203,7 +203,7 @@ Dans votre éditeur de code, le contenu de main.c devrait ressembler à ceci.
 \end{figure}
 Nous voulons maintenant compiler le code (traduire ces mots écrits en quelque chose qui puisse être interprété par l'ordinateur). {\color{Bittersweet}\textbf{Soyez attentifs, car c'est ce que vous ferez de manière extensive pendant ce TP.}}
 
-Vous devez lancer l'application appelée Terminal (voir \fig{F:HowToFindTerminal}).
+Vous devez lancer l'application appelée Terminal (voir \fig{F:HowToFindTerminal} dans chapitre \ref{S:CommandLineWithoutX}).
 
 Votre terminal se trouve toujours dans un répertoire quelconque. Si vous tapez 
 \begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]    
@@ -278,14 +278,12 @@ Vous devriez voir une sortie comme celle-ci.
 \center
 \includegraphics[width=0.9\textwidth]{Plots/FirstCode_8.png}
 \end{figure}
-Il s'agit de la sortie du code. Si vous voyez ce résultat, alors félicitations à vous. Vous êtes maintenant prêt à commencer le TP.
+Il s'agit de la sortie du code. Si vous voyez ce résultat, alors félicitations à vous. 
 
 \section{Test pour le projet final}
 Nous devons tester si votre ordinateur est prêt pour le projet final.
 
 Allez à la page suivante et cliquez sur "Download" : \\ \href{https://github.com/JulianeUta/TP_Programmation2020_ForStudents/blob/master/MDFlexBoxRadiusMass.zip}{https://github.com/JulianeUta/TP\_Programmation2020\_ForStudents/blob/master/MDFlexBoxRadiusMass.zip}.
-
-Extrayez le dossier « MDFlexBoxRadiusMass » (clic droit sur le dossier $\rightarrow$ extraire tout). 
 
 Naviguez le terminal à l'intérieur du dossier « MDFlexBoxRadiusMass ». Notez que si vous avez déjà utilisé cd /path/to/folder/, vous n'êtes peut-être pas dans le répertoire d'origine. Avec la commande pwd, vous pouvez voir dans quel dossier se trouve le terminal en ce moment.
 \begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]  
@@ -336,7 +334,7 @@ Vous devriez voir un carré vert avec deux particules rouges à l'intérieur et 
 \subsection{Troubleshooting}
 Si vous ne voyez pas la fenêtre XQuartz avec les cercles rouges?
 
-Recherchez l'application XQuartz, que vous avez installée dans le chapitre \ref{S:InstallXquatz}. Vous pouvez effectuer une recherche avec Spotlight ou vous rendre dans le même dossier, où vous avez trouvé l'application Terminal /Applications/Utilities/ (voir \fig{F:HowToFindTerminal}). 
+Recherchez l'application XQuartz, que vous avez installée dans le chapitre \ref{S:InstallXquatz}. Vous pouvez effectuer une recherche avec Spotlight ou vous rendre dans le même dossier, où vous avez trouvé l'application Terminal /Applications/Utilitaires/ (voir \fig{F:HowToFindTerminal} dans chapitre \ref{S:CommandLineWithoutX}). 
 
 Ouvrez l'application XQuartz. XQuartz dispose de son propre terminal. Nous voulons ouvrir ce terminal maintenant et y lancer le code. Pour ouvrir le terminal XQuartz, suivez les indications de l'image ci-dessous.
 \begin{figure}[H]
