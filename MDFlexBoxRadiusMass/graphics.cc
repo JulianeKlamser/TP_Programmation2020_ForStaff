@@ -10,7 +10,7 @@
 
 void
 Graphics::draw(Particle *p, double FPS,int l){
-  
+  assert(FPS > 1);
   //  const int FPS=50;//frames per second
   struct timespec tm={0,(long int)(1000000000/FPS)}; //Sleep in nanoseconds between frames
   XEvent event;//check if window closed and finish
