@@ -59,6 +59,7 @@ Pour toute question, veuillez contacter\\
 
 % keywords can be removed
 %\keywords{First keyword \and Second keyword \and More}
+
 \section{Installer les outils de la ligne de commande}
 \subsection{La solution la plus simple: Installation Xcode}
 Si vous installez Xcode, vous pouvez utiliser Xcode comme éditeur de code. Vous n'avez pas besoin d'installer d'autres logiciels pour éditer les codes.
@@ -69,8 +70,9 @@ Allez sur l'App Store et cherchez Xcode. Téléchargez et installez cette applic
 %\caption{Choisissez la version qui est compatible avec votre ordinateur.}
 \end{figure}
 \subsection{Installation sans Xcode}
-Il est possible que vous ne soyez pas en mesure d'installer Xcode ou que vous ne souhaitiez pas l'installer.  
+Il est possible que vous ne soyez pas en mesure d'installer Xcode ou que vous ne souhaitiez pas l'installer.  Dans le premier cas, vous pouvez envisager de \textbf{mettre à jour votre système d'exploitation} (cliquez sur la pomme dans la barre de menu -> à propos de ce Mac -> overview -> mise à jour). Une fois votre système mis à jour, vous n'aurez probablement plus de problèmes pour télécharger Xcode. En outre, cela permet d'éviter d'autres problèmes dans ce qui suit.
 
+Si vous ne pouvez ou ne voulez vraiment pas installer Xcode, procédez comme suit:\\
 Vous pouvez installer les outils de la ligne de commande sans Xcode. Pour cela, vous devez lancer l'application appelée Terminal. Cette application se trouve dans /Applications/Utilitaires/. Vous pouvez également la rechercher avec "Spotlight" (cmd + espace ou loupe dans le coin supérieur droit de la barre de menu).
 \begin{figure}[H]
 \begin{subfigure}[c]{0.5\textwidth}
@@ -114,16 +116,16 @@ Attendez que le téléchargement du paquet d'outils en ligne de commande soit te
 L'installateur s'en va de lui-même quand il a terminé.
 
 Maintenant, vous avez également besoin d'un éditeur de code.
-\subsubsection{éditeur de code}
+\subsubsection{éditeur de code\label{S:VisCodAtom}}
 Vous pouvez essayer atom \href{https://atom.io}{https://atom.io}\\
 ou bien Visual Studio Code \href{https://code.visualstudio.com/download}{https://code.visualstudio.com/download}
 
 Les deux éditeurs de code offrent une option qui vous permettent de travailler simultanément sur le même code avec quelqu'un. C'est très utile pour le projet final, lorsque vous travaillez avec un partenaire sur le même code. Cette fonction est appelée "Teletype" pour atom et "live share" pour Visual Studio Code. 
 
-\section{Xquartz}
+\section{Installation Xquartz \label{S:InstallXquatz}}
 Plus tard, nous aurons besoin de Xquartz, qui permet de faire de la visualisation graphique avec vos codes.
 Veuillez télécharger le logiciel ici (utilisez les paramètres par défaut si possible) : \href{https://www.xquartz.org}{https://www.xquartz.org}.
-\section{Gnuplot}
+\section{Installation Gnuplot}
 Gnuplot est un logiciel qui sert à produire des représentations graphiques en deux ou trois dimensions de fonctions numériques ou de données. Il sera très utile pour tracer des données avec quelques lignes.
 \subsection{Installation de homebrew}
 Homebrew est un logiciel de gestion de paquets pour macOS gratuit et open-source écrit en ruby. Son but est de simplifier l'installation de programme. Nous l'utiliserons pour installer gnuplot.
@@ -160,10 +162,12 @@ Votre résultat devrait ressembler à ceci (Dans cet exemple, la version de gnup
 \center
 \includegraphics[width=0.6\textwidth]{Plots/GnuplotCheck.png}
 \end{figure}
+\subsection{Troubleshooting}
+Si vous avez un problème pour installer gnuplot via le terminal, veuillez vous rendre sur ce site \href{https://csml-wiki.northwestern.edu/index.php/Binary_versions_of_Gnuplot_for_OS_X}{https://csml-wiki.northwestern.edu/index.php/Binary\_versions\_of\_Gnuplot\_for\_OS\_X}, cliquez sur Installer Gnuplot et suivez les instructions d'installation avec les paramètres par défaut.
 
 
 \section{Lançons votre premier code C.}
-Rendez-vous sur ce site \href{https://github.com/JulianeUta/MD2020/blob/master/MyFirstCode.zip}{https://github.com/JulianeUta/MD2020/blob/master/MyFirstCode.zip} et cliquez sur Download. Un dossier compressé avec votre premier code en C sera téléchargé. L'objectif est de compiler le code et de l'exécuter.
+Rendez-vous sur ce site \href{https://github.com/JulianeUta/TP_Programmation2020_ForStudents/blob/master/MyFirstCode.zip}{https://github.com/JulianeUta/TP\_Programmation2020\_ForStudents/blob/master/MyFirstCode.zip} et cliquez sur Download. Un dossier compressé avec votre premier code en C sera téléchargé. L'objectif est de compiler le code et de l'exécuter.
 \begin{figure}[H]
 \center
 \includegraphics[width=0.6\textwidth]{Plots/FirstCode_1.png}
@@ -276,6 +280,92 @@ Vous devriez voir une sortie comme celle-ci.
 \end{figure}
 Il s'agit de la sortie du code. Si vous voyez ce résultat, alors félicitations à vous. Vous êtes maintenant prêt à commencer le TP.
 
+\section{Test pour le projet final}
+Nous devons tester si votre ordinateur est prêt pour le projet final.
+
+Allez à la page suivante et cliquez sur "Download" : \\ \href{https://github.com/JulianeUta/TP_Programmation2020_ForStudents/blob/master/MDFlexBoxRadiusMass.zip}{https://github.com/JulianeUta/TP\_Programmation2020\_ForStudents/blob/master/MDFlexBoxRadiusMass.zip}.
+
+Extrayez le dossier « MDFlexBoxRadiusMass » (clic droit sur le dossier $\rightarrow$ extraire tout). 
+
+Naviguez le terminal à l'intérieur du dossier « MDFlexBoxRadiusMass ». Notez que si vous avez déjà utilisé cd /path/to/folder/, vous n'êtes peut-être pas dans le répertoire d'origine. Avec la commande pwd, vous pouvez voir dans quel dossier se trouve le terminal en ce moment.
+\begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  pwd }
+\end{tcolorbox}
+Vous devrez peut-être d'abord naviguer vers le dossier d'origine avec la commande
+\begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  cd }
+\end{tcolorbox}
+ou vous pouvez aussi revenir en arrière sur une couche du dossier avec la commande
+\begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  cd ..}
+\end{tcolorbox}
+et ensuite naviguer de là vers l'intérieur du dossier « MDFlexBoxRadiusMass ».
+
+Une fois que vous êtes dans le bon dossier ( « MDFlexBoxRadiusMass »), tapez
+\begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  ls }
+\end{tcolorbox}
+Votre résultat devrait ressembler à ceci
+\begin{figure}[H]
+\center
+\includegraphics[width=0.9\textwidth]{Plots/MD_2CD.png}
+\end{figure}
+Maintenant, compilez le code avec
+\begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  make }
+\end{tcolorbox}
+et listez à nouveau tous les fichiers avec
+\begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  ls }
+\end{tcolorbox}
+Vous devriez voir trois nouveaux fichiers (graphics.o, start.o et start) comme ici
+\begin{figure}[H]
+\center
+\includegraphics[width=0.9\textwidth]{Plots/MD_3Make.png}
+\end{figure}
+Dans ce cas, l'exécutable est appelé start. Nous lançons l'exécutable avec la commande suivante
+\begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  ./start }
+\end{tcolorbox}
+Une fenêtre XQuartz devrait s'ouvrir comme ici
+\begin{figure}[H]
+\center
+\includegraphics[width=0.9\textwidth]{Plots/MD_4XQuartz.png}
+\end{figure}
+Vous devriez voir un carré vert avec deux particules rouges à l'intérieur et un petit compteur blanc en bas à droite qui augmente.
+\subsection{Troubleshooting}
+Si vous ne voyez pas la fenêtre XQuartz avec les cercles rouges?
+
+Recherchez l'application XQuartz, que vous avez installée dans le chapitre \ref{S:InstallXquatz}. Vous pouvez effectuer une recherche avec Spotlight ou vous rendre dans le même dossier, où vous avez trouvé l'application Terminal /Applications/Utilities/ (voir \fig{F:HowToFindTerminal}). 
+
+Ouvrez l'application XQuartz. XQuartz dispose de son propre terminal. Nous voulons ouvrir ce terminal maintenant et y lancer le code. Pour ouvrir le terminal XQuartz, suivez les indications de l'image ci-dessous.
+\begin{figure}[H]
+\center
+\includegraphics[width=0.9\textwidth]{Plots/TroubleshootingMD.png}
+\end{figure}
+Vous devriez voir quelque chose comme dans l'image ci-dessous. Ce terminal fonctionne de la même manière que l'autre terminal.
+\begin{figure}[H]
+\center
+\includegraphics[width=0.75\textwidth]{Plots/XQuartzTerminal.png}
+\end{figure}
+Encore une fois, vous devez naviguer sur ce terminal à l'intérieur du dossier « MDFlexBoxRadiusMass ». Ensuite, exécutez le code avec
+\begin{tcolorbox}[width=\textwidth,colframe=Bittersweet,colback={black},title={Ceci est le terminal},outer arc=0mm,colupper=white]  
+    \large\textbf{  ./start }
+\end{tcolorbox}
+Vous devriez voir cela maintenant
+\begin{figure}[H]
+\center
+\includegraphics[width=0.75\textwidth]{Plots/XQuartzFinal.png}
+\end{figure}
+
+Si vous ne voyez pas la fenêtre XQuartz avec les cercles rouges?, contactez \href{mailto:example@example.com}{juliane.klamser@espci.psl.eu}.
+
+\subsection{Comment travailler simultanément avec quelqu'un d'autre sur le même code ?}
+Comme mentionné au chapitre \ref{S:VisCodAtom}, vous pouvez utiliser les fonctions intégrées des éditeurs de code Visual Studio Code ou Atom. 
+
+Une autre méthode professionnelle, qu'il convient de mentionner, est GitHub. Elle est très puissante et largement utilisée. Cependant, elle nécessite une certaine formation.
+
+La méthode la plus simple est de créer un compte dropbox et d'utiliser dropbox paper. Si vous copiez votre code dans le fichier du dropbox paper, vous et votre partenaire pouvez travailler sur le même code en même temps.
 %\bibliographystyle{unsrt}  
 %\bibliography{references}  %%% Remove comment to use the external .bib file (using bibtex).
 %%% and comment out the ``thebibliography'' section.

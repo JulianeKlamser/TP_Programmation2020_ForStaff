@@ -36,7 +36,7 @@
 \usepackage[most]{tcolorbox}
 \tcbset{highlight math style={boxsep=1mm,colback=blue!30!red!10!white}}
 
-\title{Préparation de Windows 7 pour le TP}
+\title{Préparation de Windows 7/8 pour le TP}
 
 
 \author{
@@ -59,6 +59,7 @@ Pour toute question, veuillez contacter\\
 
 % keywords can be removed
 %\keywords{First keyword \and Second keyword \and More}
+\newpage
 \section{Remarques générales}
 Il existe de nombreux compilateurs C souvent gratuits (même le compilateur de MicroSoft est gratuit), nous vous proposons d'installer GCC le compilateur de GNU parce qu'il existe sur presque toutes les machines et les systèmes d'exploitation. Coder c'est bien, on peut presque tout faire, mais utiliser le travail des autres c'est encore mieux. Au-delà du compilateur, il est très commode de pouvoir bénéficier de très nombreuses librairies que d'autres, beaucoup plus courageux que vous, ont écrites. En fait, ces librairies sont en permanence améliorées et elles dépendent les unes des autres, les recopier et les garder compatibles entre elles est un challenge. 
 Heureusement il existe des logiciels qui vous permettent de conserver et d'étendre une chaîne de compilation et de librairies à jour sans trop souffrir. C'est particulièrement vrai sur Linux où ils se nomment \textbf{apt-get} ou \textbf{pacman}. Sur Windows c'était beaucoup moins simple, mais il existe maintenant un logiciel qui vous permet de retrouver l’environnement style Linux pour compiler des applications Windows. C'est ce que nous vous proposons d'utiliser. Il s'agit de \textbf{MSYS2} qui va installer une console Linux sur votre Windows, cette console sera très similaire à un terminal de Linux elle vous permettra de lancer le logiciel \textbf{pacman} qui se connecte à internet et se charge d'installer et surtout de gérer automatiquement les dépendances des logiciels et librairies que vous installerez. Pour plus tard, vous trouverez peut-être ce site utile, où vous pourrez trouver toutes les bibliothèques de \textbf{pacman}: \href{https://packages.msys2.org/search}{https://packages.msys2.org/search}
@@ -72,7 +73,6 @@ D'abord MSYS2 peut paraitre un peu plus compliqué à installer, car ce système
 \item une console du style Unix
 \item sa mise à jour
 \item l'installation du compilateur 64 bits
-\item la possibilité d'aller plus loin.
 \end{enumerate}
  
  \section{Type de système : 32 bits ou 64 bits ?}
@@ -94,7 +94,7 @@ D'abord MSYS2 peut paraitre un peu plus compliqué à installer, car ce système
 Durant toute l'installation, vous devez être connecté à internet. En allant sur le site : \href{http://msys2.github.io/}{http://msys2.github.io/} vous trouverez des liens vers : MSYS2 en version 32 bits ou MSYS2 en version 64 bits (voir l'image ci-dessous). Suivant votre système, chargez l'un ou l'autre et exécutez cet installeur. Ce faisant vous allez installer le système minimal permettant de démarrer, tous les fichiers utiles seront situés dans un dossier unique c:\textbackslash msys32 ou c:\textbackslash msys64
 \begin{figure}[H]
 \center
-\includegraphics[width=1\textwidth]{Plots/Msys2_0.png}
+\includegraphics[width=0.75\textwidth]{Plots/Msys2_0.png}
 \caption{Choisissez la version qui est compatible avec votre ordinateur.}
 \end{figure}
 Lancez le processus d'installation.\\
@@ -131,10 +131,11 @@ Votre processus d'installation devrait être comparable à la \fig{F:installatio
 
 
 \subsection{Mise à jour de MSYS2}
-He oui, à peine installer il faut mettre à jour, pour cela recopier la ligne de commande ci-dessous (dans le champ noir) et coller la dans la console (click droit, paste). Confirmez avec ENTER !
+ He oui, à peine installer il faut mettre à jour, pour cela recopier la ligne de commande ci-dessous (dans le champ noir) et coller la dans la console (click droit, paste). Confirmez avec ENTER !
 \begin{tcolorbox}[width=\textwidth,colframe=Purple,colback={black},title={Ceci est la console MSYS2 Shell},outer arc=0mm,colupper=white]    
-      pacman --needed -Sy bash pacman-mirrors msys2-runtime
+      \large\textbf{pacman --needed -Sy bash pacman-mirrors msys2-runtime}
 \end{tcolorbox}
+\textbf{Notez que vous ne pouvez vous déplacer entre les lettres qu'avec les touches fléchées de votre clavier. } Si vous utilisez les flèches haut et bas de votre clavier, vous pouvez naviguer entre les commandes que vous avez utilisées dans le passé dans la console.\\
 Vous devriez voir apparaître quelque chose comme dans la \fig{F:firstPaxman}.
 \begin{figure}[H]
 \center
@@ -143,7 +144,7 @@ Vous devriez voir apparaître quelque chose comme dans la \fig{F:firstPaxman}.
 \end{figure}
 À ce stade, vous devez mettre à jour le logiciel et sa base de données en tapant (il faut être connecté à internet pour que cela marche):
 \begin{tcolorbox}[width=\textwidth,colframe=Purple,colback={black},title={Ceci est la console MSYS2 Shell},outer arc=0mm,colupper=white]    
-      pacman -Syu
+      \large\textbf{pacman -Syu}
 \end{tcolorbox}
 Vous devriez voir apparaître quelque chose comme dans la \fig{F:2Paxman}.
 \begin{figure}[H]
@@ -163,7 +164,7 @@ Note: \textbf{Il est possible que le premier essai ne se termine pas avec succè
 \end{figure}
 Pour tester si votre installation est réussie. Tapez
 \begin{tcolorbox}[width=\textwidth,colframe=Purple,colback={black},title={Ceci est la console MSYS2 Shell},outer arc=0mm,colupper=white]    
-      pacman -Su
+      \large\textbf{pacman -Su}
 \end{tcolorbox}
 Vous devriez obtenir un résultat comme indiqué dans la \fig{F:Su}.
 \begin{figure}[H]
@@ -208,7 +209,7 @@ MSYS2 possède un défaut, les noms des paquets sont assez cryptiques, ceci prov
 
 Pour installer le compilateur GCC en 64 bits, copiez la commande suivante dans la console MSYS2 Shell utilisé précédemment et confirmez avec ENTER 
 \begin{tcolorbox}[width=\textwidth,colframe=Purple,colback={black},title={Ceci est la console MSYS2 Shell},outer arc=0mm,colupper=white]    
-      pacman -S mingw-w64-x86\_64-toolchain
+      \large\textbf{pacman -S mingw-w64-x86\_64-toolchain}
 \end{tcolorbox}
 Le résultat devrait ressembler à ceci (\fig{F:GNUInstall1}). Confirmez avec ENTER pour télécharger tous les paquets par défaut. Attendez ensuite que le téléchargement se termine.
 \begin{figure}[H]
@@ -226,7 +227,7 @@ Le processus va prendre un peu de temps, l'ordre en question installe tous les p
 
 À la fin vous avez installé le compilateur. Pour vérifier que l'installation est bonne, lancer la console {\color{MidnightBlue}\textbf{MinGW-w64 Win64 Shell}}, une nouvelle fenêtre devrait apparaître tapez la commande 
 \begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
-      gcc -v
+      \large\textbf{gcc -v}
 \end{tcolorbox}
 (ce qui veut dire lance le compilateur gcc qui m'indique son numéro de version). Vous devriez obtenir un résultat comme dans la \fig{F:gccVersion}. Cela veut dire que vous avez la version 9.3.0 de gcc et que tout va bien. Si vous avez  quelque chose comme \textbf{gcc command not found}, c'est que l'installation n'a pas marché et il faut la reprendre.
 \begin{figure}[H]
@@ -238,7 +239,7 @@ Le processus va prendre un peu de temps, l'ordre en question installe tous les p
 
 Quand vous avez un compilateur qui marche vous pouvez installer les autres librairies en tapant dans la console {\color{Purple}\textbf{MSYS2 Shell}} (attention, changement de console):
 \begin{tcolorbox}[width=\textwidth,colframe=Purple,colback={black},title={Ceci est la console MSYS2 Shell},outer arc=0mm,colupper=white]    
-      pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make
+      \large\textbf{pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make}
 \end{tcolorbox}
 Le résultat devrait ressembler à la figure \ref{F:gtkInstal}. Là encore, vous devez confirmer le processus d'installation avec la majuscule Y. Attendez que l'installation soit terminée.
 \begin{figure}[H]
@@ -256,7 +257,7 @@ Une façon simple de commencer et d’utiliser un éditeur de texte pour modifie
 \includegraphics[width=0.4\textwidth]{Plots/Editor_1.jpg}
 %\caption{Resultat de pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make}
 \end{figure}
-\subsection{Atom}
+\subsection{Atom\label{S:VisCodAtom}}
 Vous pouvez essayer atom \href{https://atom.io}{https://atom.io}\\
 
 Ce éditeur offre une option qui vous permettent de travailler simultanément sur le même code avec quelqu'un. C'est très utile pour le projet final, lorsque vous travaillez avec un partenaire sur le même code. Cette fonction est appelée "Teletype".
@@ -267,11 +268,11 @@ Suivez ce lien pour accéder à un tutoriel vim \href{https://www.openvim.com}{h
 
 Vous obtenez VIM en tapant: 
 \begin{tcolorbox}[width=\textwidth,colframe=Purple,colback={black},title={Ceci est la console MSYS2 Shell},outer arc=0mm,colupper=white]    
-      pacman –S vim
+      \large\textbf{pacman –S vim}
 \end{tcolorbox}
 Pour emacs tapez 
 \begin{tcolorbox}[width=\textwidth,colframe=Purple,colback={black},title={Ceci est la console MSYS2 Shell},outer arc=0mm,colupper=white]    
-      pacman –S mingw-w64-x86\_64-emacs
+      \large\textbf{pacman –S mingw-w64-x86\_64-emacs}
 \end{tcolorbox}
 
 \subsection{Code::Blocks}
@@ -282,13 +283,13 @@ Vous trouverez une description de cet IDE à cette adresse \href{http://www.code
 Vous pouvez télécharger le logiciel à cette adresse \href{http://www.codeblocks.org/downloads}{http://www.codeblocks.org/downloads}
 
 \section{Lançons votre premier code C.}
-Rendez-vous sur ce site \href{https://github.com/JulianeUta/MD2020/blob/master/MyFirstCode.zip}{https://github.com/JulianeUta/MD2020/blob/master/MyFirstCode.zip} et cliquez sur Download. Un dossier compressé avec votre premier code en C sera téléchargé. L'objectif est de compiler le code et de l'exécuter.
+Rendez-vous sur ce site \href{https://github.com/JulianeUta/TP_Programmation2020_ForStudents/blob/master/MyFirstCode.zip}{https://github.com/JulianeUta/TP\_Programmation2020\_ForStudents/blob/master/MyFirstCode.zip} et cliquez sur Download. Un dossier compressé avec votre premier code en C sera téléchargé. L'objectif est de compiler le code et de l'exécuter.
 \begin{figure}[H]
 \center
 \includegraphics[width=0.6\textwidth]{Plots/FirstCode_1.png}
 %\caption{Resultat de pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make}
 \end{figure}
-Supposons que vous ayez choisi de sauvegarder le dossier compressé dans votre dossier Documents. Ensuite, allez dans votre dossier Documents et faites un clic droit sur le dossier compressé MyFirstCCode, puis sélectionnez quelque chose comme "Extraire tout...".
+Supposons que vous ayez choisi de sauvegarder le dossier compressé dans votre dossier Documents. Ensuite, allez dans votre dossier Documents et faites un clic droit sur le dossier compressé MyFirstCode, puis sélectionnez quelque chose comme "Extraire tout...".
 \begin{figure}[H]
 \center
 \includegraphics[width=0.6\textwidth]{Plots/FirstCode_2.jpg}
@@ -301,7 +302,7 @@ Il devrait y avoir un dossier normal appelé MyFistCode. Allez dans ce dossier. 
 %\caption{Resultat de pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make}
 \end{figure}
 Nous voulons maintenant compiler le code (traduire ces mots écrits en quelque chose qui puisse être interprété par l'ordinateur). {\color{Bittersweet}\textbf{Soyez attentifs, car c'est ce que vous ferez de manière extensive pendant ce TP.}}
-
+\subsection{Naviguer dans la console jusqu'au dossier du code\label{S:GoToFolder}}
 Faites un clic droit sur le dossier MyFirstCode et sélectionnez les propriétés. Nous devons connaître la localisation du dossier avec votre code. Dans l'exemple de la \fig{F:FindFolderAddress}, l'adresse dont nous avons besoin se trouve dans le carré bleu (voir \subfig{F:FindFolderAddress}{b}).
 \begin{figure}[H]
 \begin{subfigure}[c]{0.5\textwidth}
@@ -318,20 +319,21 @@ Nous utilisons les informations contenues dans le carré bleu et les convertisso
 
 Nous utilisons maintenant la console {\color{MidnightBlue}\textbf{MinGW-w64 Win64 Shell}} et naviguons vers ce dossier en tapant
 \begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
-      cd /c/Users/tsadhu/OneDrive/Documents/MyFirstCode
+      \large\textbf{cd /c/Users/tsadhu/OneDrive/Documents/MyFirstCode}
 \end{tcolorbox}
 Si vous tapez maintenant 
 \begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
-      ls
+      \large\textbf{ls}
 \end{tcolorbox}
 ce qui signifie qu'il faut lister tous les fichiers de ce dossier (c'est bien un minuscule L et non un I majuscule). Vous devriez voir une sortie comme celle-ci.
 \begin{figure}[H]
 \center
 \includegraphics[width=0.9\textwidth]{Plots/FirstCode_5.jpeg}
 \end{figure}
+\subsection{Compiler et exécuter le code}
 Pour compiler le code, que vous avez vu dans votre éditeur du code, tapez
 \begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
-      make
+      \large\textbf{make}
 \end{tcolorbox}
 Vous devriez voir une sortie comme celle-ci.
 \begin{figure}[H]
@@ -340,7 +342,7 @@ Vous devriez voir une sortie comme celle-ci.
 \end{figure}
 Si vous tapez maintenant 
 \begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
-      ls
+      \large\textbf{ls}
 \end{tcolorbox}
 Vous devriez voir une sortie comme celle-ci. Il existe deux autres fichiers, main.o et main.exe. main.exe est écrit dans une langue que l'ordinateur peut interpréter et exécuter. C'est ce que l'on appelle l'exécutable.
  \begin{figure}[H]
@@ -349,7 +351,7 @@ Vous devriez voir une sortie comme celle-ci. Il existe deux autres fichiers, mai
 \end{figure}
 Pour exécuter le main.exe, tapez
 \begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
-      ./main.exe
+      \large\textbf{./main.exe}
 \end{tcolorbox}
 Vous devriez voir une sortie comme celle-ci. 
 \begin{figure}[H]
@@ -361,6 +363,69 @@ Il s'agit de la sortie du code. Si vous voyez ce résultat, alors félicitations
 Gnuplot est un logiciel qui sert à produire des représentations graphiques en deux ou trois dimensions de fonctions numériques ou de données. Il sera très utile pour tracer des données avec quelques lignes. Vous pouvez télécharger Gnuplot à partir de ce site. \href{http://www.gnuplot.info/download.html}{http://www.gnuplot.info/download.html} 
 
 Téléchargez et exécutez l'installateur. Si possible, choisissez les paramètres par défaut. Si vous le souhaitez, vous pouvez choisir le même répertoire que pour l'installation de MSYS2. Une fois l'installation terminée, vous pouvez trouver l'application gnuplot parmi vos programmes. 
+
+\section{Test pour le projet final}
+Nous devons tester si votre ordinateur est prêt pour le projet final.
+
+Allez à la page suivante et cliquez sur "Download" : \\ \href{https://github.com/JulianeUta/TP_Programmation2020_ForStudents/blob/master/MDgtkBasicCodeWin7.zip}{https://github.com/JulianeUta/TP\_Programmation2020\_ForStudents/blob/master/MDgtkBasicCodeWin7.zip}.
+
+Extrayez le dossier « MDgtkBasicCodeWin7 » (clic droit sur le dossier $\rightarrow$ extraire tout). Là encore, vous pouvez supprimer le dossier « \_MACOSX » à l'intérieur du « MDgtkBasicCodeWin7 ».
+
+Répétez les étapes décrites au chapitre \ref{S:GoToFolder}, pour naviguer la console à l'intérieur du dossier « MDgtkBasicCodeWin7 ». Notez que si vous avez déjà utilisé cd /path/to/folder/, vous n'êtes peut-être pas dans le répertoire d'origine. Avec la commande pwd, vous pouvez voir dans quel dossier se trouve la console en ce moment.
+\begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
+    \large\textbf{  pwd }
+\end{tcolorbox}
+Vous devrez peut-être d'abord naviguer vers le dossier d'origine avec la commande
+\begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
+    \large\textbf{  cd }
+\end{tcolorbox}
+ou vous pouvez aussi revenir en arrière sur une couche du dossier avec la commande
+\begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
+    \large\textbf{  cd ..}
+\end{tcolorbox}
+et ensuite naviguer de là vers l'intérieur du dossier « MDgtkBasicCodeWin7 ».
+
+Une fois que vous êtes dans le bon dossier ( « MDgtkBasicCodeWin7 »), tapez
+\begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
+    \large\textbf{  ls }
+\end{tcolorbox}
+Votre résultat devrait ressembler à ceci
+\begin{figure}[H]
+\center
+\includegraphics[width=0.9\textwidth]{Plots/MD_2CD.jpeg}
+\end{figure}
+Maintenant, compilez le code avec
+\begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
+    \large\textbf{  make }
+\end{tcolorbox}
+et listez à nouveau tous les fichiers avec
+\begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
+    \large\textbf{  ls }
+\end{tcolorbox}
+vous devriez voir plusieurs nouveaux fichiers (se terminant par « .o », et gtkcairo.exe) comme ici
+\begin{figure}[H]
+\center
+\includegraphics[width=0.9\textwidth]{Plots/MD_3Make.jpeg}
+\end{figure}
+Dans ce cas, l'exécutable est appelé gtkcairo.exe. Nous lançons l'exécutable avec la commande suivante
+\begin{tcolorbox}[width=\textwidth,colframe=MidnightBlue,colback={black},title={Ceci est la console MinGW-w64 Win64 Shell},outer arc=0mm,colupper=white]    
+    \large\textbf{  ./gtkcairo.exe }
+\end{tcolorbox}
+Une fenêtre gtk devrait s'ouvrir comme ici
+\begin{figure}[H]
+\center
+\includegraphics[width=0.9\textwidth]{Plots/MD_4XMing.jpeg}
+\end{figure}
+Vous devriez voir un carré vert avec deux particules rouges à l'intérieur et un petit compteur blanc en bas à droite qui augmente.
+
+Si vous ne voyez pas la fenêtre gtk avec les cercles rouges, contactez \href{mailto:example@example.com}{juliane.klamser@espci.psl.eu}.
+\subsection{Comment travailler simultanément avec quelqu'un d'autre sur le même code ?}
+Comme mentionné au chapitre \ref{S:VisCodAtom}, vous pouvez utiliser les fonctions intégrées des éditeurs de code Visual Studio Code ou Atom. 
+
+Une autre méthode professionnelle, qu'il convient de mentionner, est GitHub. Elle est très puissante et largement utilisée. Cependant, elle nécessite une certaine formation.
+
+La méthode la plus simple est de créer un compte dropbox et d'utiliser dropbox paper. Si vous copiez votre code dans le fichier du dropbox paper, vous et votre partenaire pouvez travailler sur le même code en même temps.
+
 
 
 
