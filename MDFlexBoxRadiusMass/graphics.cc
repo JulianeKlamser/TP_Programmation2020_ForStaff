@@ -12,7 +12,7 @@ void
 Graphics::draw(Particle *p, double FPS,int l){
   
   //  const int FPS=50;//frames per second
-  struct timespec tm={0,1000000000/FPS}; //Sleep in nanoseconds between frames
+  struct timespec tm={0,(long int)(1000000000/FPS)}; //Sleep in nanoseconds between frames
   XEvent event;//check if window closed and finish
   if( XCheckWindowEvent(dsp,da, DestroyNotify , &event)){ XCloseDisplay(dsp); exit(1);}
 
