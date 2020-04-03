@@ -137,6 +137,13 @@ Vous devez copier-coller la commande suivante dans le terminal et confirmer la c
       \large\textbf{ruby -e "\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null}
 \end{tcolorbox}
 Il vous sera peut-être demandé d'entrer votre mot de passe, veuillez entrer le mot de passe d'utilisateur de votre Mac pour continuer. Lorsque vous tapez le mot de passe, il ne s'affiche pas à l'écran, mais le système l'accepte. Il vous suffit donc de taper votre mot de passe et d'appuyer sur la touche ENTER. Attendez ensuite que la commande se termine.
+
+Si vous obtenez un message d'erreur, comme:\\
+==> You are using macOS 10.10.\\
+==> We (and Apple) do not provide support for this old version$\dots$\\
+Dans ce cas, passez au chapitre \ref{S:GnuplotTrouble}.
+
+
 \subsection{Mise à jour du homebrew}
 Nous devons d'abord nous assurer que l'homebrew est à jour.
 Vous devez copier-coller la commande suivante dans le terminal et confirmer la commande avec ENTER. Cela peut prendre un certain temps avant de se terminer.
@@ -162,7 +169,7 @@ Votre résultat devrait ressembler à ceci (Dans cet exemple, la version de gnup
 \center
 \includegraphics[width=0.7\textwidth]{Plots/GnuplotCheck.png}
 \end{figure}
-\subsection{Troubleshooting}
+\subsection{Troubleshooting\label{S:GnuplotTrouble}}
 Si vous avez un problème pour installer gnuplot via le terminal, veuillez vous rendre sur ce site \href{https://csml-wiki.northwestern.edu/index.php/Binary_versions_of_Gnuplot_for_OS_X}{https://csml-wiki.northwestern.edu/index.php/Binary\_versions\_of\_Gnuplot\_for\_OS\_X}, cliquez sur Installer Gnuplot et suivez les instructions d'installation avec les paramètres par défaut.
 
 
