@@ -90,7 +90,94 @@ D'abord MSYS2 peut paraitre un peu plus compliqué à installer, car ce système
 \end{figure}
 
 \section{Installation de MSYS2}
-\subsection{Installation de la console Unix}
+\subsection{Installation rapide pour le 64 bit\label{S:FastInstall}}
+Vous pouvez télécharger un installateur maison ici
+\href{https://dl.espci.fr/ticket/f307b88b1164ee83c0f28e65e80154b1}{https://dl.espci.fr/ticket/f307b88b1164ee83c0f28e65e80154b1}\\
+Il s'occupe de presque tout ce qui concerne Msys2.
+
+Téléchargez le programme d'installation et essayez de l'ouvrir. Peut-être serez-vous confronté  à une alerte comme ci-dessous.  Si c'est le cas, choisissez l'option "Ouvrir quand même". Si vous n'avez pas l'option "ouvrir quand même", voir le chapitre \ref{TroubleDeblockInstaller}.
+\begin{figure}[H]
+\center
+\includegraphics[width=0.5\textwidth]{Plots/OpeningWarning.jpeg}
+%\caption{Choisissez la version qui est compatible avec votre ordinateur.}
+\end{figure}
+Votre processus d'installation devrait être comparable à celui-ci.
+ \begin{figure}[H]
+ \begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.75\textwidth]{Plots/AutoInstall1.jpeg}
+\subcaption{ étape 0}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.75\textwidth]{Plots/AutoInstall2.jpeg}
+\subcaption{ étape 1}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.75\textwidth]{Plots/AutoInstall3.jpeg}
+\subcaption{ étape 2: \small Le plus simple est de choisir les options d'installation par défaut. Cependant, si vous savez ce que vous faites, vous pouvez choisir le dossier où vous souhaitez installer votre logiciel, par exemple c:\textbackslash msys64 si vous avez un système 64 bits c:\textbackslash msys32 sinon. Vous pouvez choisir un autre nom ou installer MSYS2 sur un autre disque (ex. d:\textbackslash msys64), mais surtout ne choisissez pas un nom compliqué ou contenant un espace ! Choisissez un endroit où vous avez le droit d'écrire (surtout pas c:\textbackslash Program Files).}
+\end{subfigure}
+\begin{subfigure}[c]{0.48\textwidth}
+\includegraphics[width=0.75\textwidth]{Plots/AutoInstall4.jpeg}
+\subcaption{ étape 3 : Cette fenêtre peut apparaître ou non. Vous pouvez choisir l'option par défaut.}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.75\textwidth]{Plots/AutoInstall5.jpeg}
+\subcaption{ étape 4 : Attendez que l'installation soit terminée.\newline}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.75\textwidth]{Plots/AutoInstall6.jpeg}
+\subcaption{ étape 5}
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.95\textwidth]{Plots/Msys2_6Terminal.png}
+\subcaption{ étape 6: En cliquant sur Finish, vous devriez voir apparaître la console MSYS2 Shell.}
+\end{subfigure}
+%\caption{Comment l'installation ressemblerait le plus probablement pour vous.\label{F:installationMsys2_0}}
+\end{figure}
+Nous utiliserons la console MSYS2 pour installer un paquet supplémentaire. \textbf{Notez que vous ne pouvez vous déplacer entre les lettres qu'avec les touches fléchées de votre clavier. } Si vous utilisez les flèches haut et bas de votre clavier, vous pouvez naviguer entre les commandes que vous avez utilisées dans le passé dans la console.\\
+
+Pour installer le paquet supplémentaire : recopier la ligne de commande ci-dessous (dans le champ noir) et coller la dans la console (click droit, paste). Confirmez avec ENTER !
+\begin{tcolorbox}[width=\textwidth,colframe=Purple,colback={black},title={Ceci est la console MSYS2 Shell},outer arc=0mm,colupper=white]    
+      \large\textbf{pacman -S mingw-w64-x86\_64-gdk-pixbuf2}
+\end{tcolorbox}
+
+Tout d'abord, le système téléchargera tous les fichiers nécessaires, puis il vous sera demandé si vous souhaitez procéder à l'installation. Vous devez confirmer avec Y et ensuite appuyer sur ENTER. Votre résultat final devrait ressembler à ceci.
+Vous devriez voir apparaître quelque chose comme dans la \fig{F:pixbuf}.
+\begin{figure}[H]
+\center
+\includegraphics[width=0.75\textwidth]{Plots/Pixbuf.jpeg}
+\caption{Résultat de pacman -S mingw-w64-x86\_64-gdk-pixbuf2.\label{F:pixbuf}}
+\end{figure}
+\textbf{\color{Bittersweet}Si vous avez réussi ici, passez directement au chapitre \ref{S:3consoles}.}
+\subsubsection{Troubleshooting\label{TroubleDeblockInstaller}}
+Si vous n'avez pas l'option "ouvrir quand même", vous pouvez essayer de modifier les paramètres de sécurité. 
+Pour Windows 10 (Windows 7 devrait avoir des étapes comparables, vous devriez vous incliner sur l'internet), vous devez faire quelque chose comme (voir Fig \ref{F:unblock})
+\begin{enumerate}
+\item Ouvrez le Windows Defender Security Center à partir du menu Démarrer, du bureau ou de la barre des tâches.
+\item Cliquez sur le bouton de App and browser control sur le côté gauche de la fenêtre.
+\item Cliquez sur Désactivé dans la section Check apps and files section.
+\item Cliquez sur Désactivé dans la section Potentially unwanted app blocking.
+\end{enumerate}
+Maintenant, essayez à nouveau d'ouvrir le programme d'installation et suivez ce qui est décrit au chapitre \ref{S:FastInstall}. 
+
+\textbf{\color{Bittersweet}Si cela ne fonctionne pas pour vous, vous pouvez supprimer l'installateur que vous avez téléchargé et suivre ce qui est décrit au chapitre \ref{S:longInstallation}.}
+ \begin{figure}[H]
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.95\textwidth]{Plots/Block1.jpeg}
+\subcaption{ }
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.95\textwidth]{Plots/Block2.jpeg}
+\subcaption{ }
+\end{subfigure}
+\begin{subfigure}[c]{0.5\textwidth}
+\includegraphics[width=0.95\textwidth]{Plots/Block3.jpeg}
+\subcaption{ }
+\end{subfigure}
+\caption{Comment obtenir l'option "ouvrir quand même".\label{F:unblock}}
+\end{figure}
+
+
+\subsection{Brute-Force Installation de la console Unix \label{S:longInstallation}}
 Durant toute l'installation, vous devez être connecté à internet. En allant sur le site : \href{http://msys2.github.io/}{http://msys2.github.io/} vous trouverez des liens vers : MSYS2 en version 32 bits ou MSYS2 en version 64 bits (voir l'image ci-dessous). Suivant votre système, chargez l'un ou l'autre et exécutez cet installeur. Ce faisant vous allez installer le système minimal permettant de démarrer, tous les fichiers utiles seront situés dans un dossier unique c:\textbackslash msys32 ou c:\textbackslash msys64
 \begin{figure}[H]
 \center
@@ -173,7 +260,7 @@ Vous devriez obtenir un résultat comme indiqué dans la \fig{F:Su}.
 \caption{Un résultat réussi de pacman -Su.\label{F:Su}}
 \end{figure}
 Vous avez mis à jour la base des paquets de logiciels de votre installation.
-
+\subsubsection{Les 3 consoles de MSYS2\label{S:3consoles}}
 À ce stade vous avez installé le logiciel MSYS2 qui contient \textbf{3 consoles} et tout ce qu'il faut pour installer et mettre à jour d'autres «paquets» c'est-à-dire des ensembles de logiciels et de librairies. Si vous cliquez sur «démarrer $\rightarrow$ tous mes programmes» vous allez voir apparaître ceci (\fig{F:FindMsys2}):
 \begin{figure}[H]
 \center
@@ -189,7 +276,7 @@ La console \textbf{MinGW-w64 Win32 Shell} permet de travailler avec tous les paq
 
 La console {\color{MidnightBlue}\textbf{MinGW-w64 Win64 Shell}} permet de travailler avec tous les paquets en 64bits.
 
-\subsection{Installation du compilateur en 64 bits}
+\subsection{Installation du compilateur en 64 bits \label{S:compilateur64}}
 Vous pouvez maintenant installer le compilateur. L'outil MSYS2 permet de travailler en 64 bits.\\\underline{Sur une machine 32 bits} vous pourrez compiler et exécuter du 32bits, vous pourrez compiler des applications 64 bits, mais elles ne tourneront pas sur votre machine 32 bits. \\\underline{Avec une machine 64 bits}, vous pourrez compiler et exécuter des applications 32 bits et 64 bits. 
 
 Nous proposons de travailler avec des applications 64 bits. MSYS2 vous propose deux terminaux différents: \textbf{MinGW-w64 Win32 Shell} et \textbf{MinGW-w64 Win64 Shell}, qui vous permettent de compiler des applications 32 bits et 64 bits. {\color{MidnightBlue}\textbf{Nous utiliserons MinGW-w64 Win64 Shell.}}
@@ -206,6 +293,8 @@ Mais si vous avez une machine 32 bits, utilisez le compilateur et la Shell en 32
 \end{tcolorbox}
  
 MSYS2 possède un défaut, les noms des paquets sont assez cryptiques, ceci provient du fait qu'ils existent en plusieurs versions (32 et 64 bits), mais aussi que les paquets sont souvent regroupés pour une action particulière.
+
+\textbf{\color{Bittersweet}Arrêtez ici la lecture de ce chapitre \ref{S:compilateur64}, si vous avez réussi l'installation rapide pour le 64 bit du chapitre \ref{S:FastInstall}. Passez directement au chapitre \ref{S:Editor}. Si vous n'avez pas réussi l'installation rapide, vous devez suivre toutes les étapes de ce chapitre.}
 
 Pour installer le compilateur GCC en 64 bits, copiez la commande suivante dans la console MSYS2 Shell utilisé précédemment et confirmez avec ENTER 
 \begin{tcolorbox}[width=\textwidth,colframe=Purple,colback={black},title={Ceci est la console MSYS2 Shell},outer arc=0mm,colupper=white]    
@@ -246,6 +335,18 @@ Le résultat devrait ressembler à la figure \ref{F:gtkInstal}. Là encore, vous
 \center
 \includegraphics[width=0.75\textwidth]{Plots/Msys2_14pkg.jpg}
 \caption{Resultat de pacman -S mingw-w64-x86\_64-pkg-config mingw-w64-x86\_64-gtk3 make\label{F:gtkInstal}}
+\end{figure}
+
+Il nous manque un dernier paquet. Recopier la ligne de commande ci-dessous (dans le champ noir) et coller la dans la console (click droit, paste). Confirmez avec ENTER !
+\begin{tcolorbox}[width=\textwidth,colframe=Purple,colback={black},title={Ceci est la console MSYS2 Shell},outer arc=0mm,colupper=white]    
+      \large\textbf{pacman -S mingw-w64-x86\_64-gdk-pixbuf2}
+\end{tcolorbox}
+Le système téléchargera tous les fichiers nécessaires, puis il vous sera demandé si vous souhaitez procéder à l'installation. Vous devez confirmer avec Y et ensuite appuyer sur ENTER. Votre résultat final devrait ressembler à ceci.
+Vous devriez voir apparaître quelque chose comme dans la \fig{F:pixbuf2}.
+\begin{figure}[H]
+\center
+\includegraphics[width=0.75\textwidth]{Plots/Pixbuf.jpeg}
+\caption{Résultat de pacman -S mingw-w64-x86\_64-gdk-pixbuf2.\label{F:pixbuf2}}
 \end{figure}
 
 \section{Éditeur de code\label{S:Editor}}
