@@ -1,8 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <math.h>
-#include <unistd.h>
-#include <assert.h>
 #define TotalPixX 200
 #define TotalPixY 100
 #define FileNameLength 99
@@ -15,7 +12,7 @@ typedef struct{
 
 void WriteImageDataToFile (char *FileName, RGB ImageData[][TotalPixY], int TotPixX, int TotPixY){
     FILE *fp;
-    fp = fopen( FileName, "w"); //open file
+    fp = fopen( FileName, "w"); //open file in write ("w") modus
     for (int x = 0; x < TotPixX; x++) {
         for (int y = 0; y < TotPixY; ++y) {
             //write to file
