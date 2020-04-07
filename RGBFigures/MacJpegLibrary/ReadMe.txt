@@ -21,8 +21,14 @@ trouve.
 
 3) Le résultat de 2) est un fichier "jpeg.a" dans le répertoire "src". Copiez ce 
 fichier dans le répertoire "Libraries", où vous avez supprimé un jpeg.a à l'étape 1)
+[si jpeg.a n'est pas dans src après la compilation: voir *]
 
 4) recompiler MinimalExemple.c
+
+*:Installez la bibliothèque jpeg en utilisant la commande suivante dans votre terminal 
+brew install libjpeg
+une fois l'installation terminée retourner à 2)
+Si vous rencontrez toujours des problèmes, contactez votre instructeur.
 
 
 Fonctions disponibles
