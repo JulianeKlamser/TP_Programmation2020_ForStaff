@@ -178,24 +178,48 @@ void do_file(GtkWidget *widget, gpointer user_data)
       }
     fclose(simu->fp);
 }
+
 // This function is called whenever you press the "One step" menu button
 // GtK imposes the two parameters: widget and userdata
-void action_one_bis(GtkWidget *widget, gpointer user_data)
+void action_one_bis(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
 {
     Simu* simu = NULL;
 
     (void)widget;
+    (void)event;
     if (user_data == NULL) return;
     // the first thing that we do is to cast user_data to the Simu* type
     simu = (Simu*)user_data;
     // now we switch the parameter run to 1    
     simu->run = 1;
+    //g_print("action one step\n");    
+}
+// This function is called whenever you press the "Stop" menu button
+// GtK imposes the two parameters: widget and userdata
+void action_stop_bis(GtkWidget *widget, GdkEventButton *event, gpointer user_data)
+{
+    Simu* simu = NULL;
+
+    (void)widget;
+    (void)event;    
+    if (user_data == NULL) return;
+    // the first thing that we do is to cast user_data to the Simu* type
+    simu = (Simu*)user_data;
+    // now we switch the parameter run to 1    
+    simu->run = 0;
+    //g_print("action stop bis\n");
+    if (simu->cont_sim != NULL)
+      gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(simu->cont_sim),FALSE);
+    if (simu->one_sim != NULL)
+      gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(simu->one_sim),FALSE);
+    if (simu->st_sim != NULL)
+      gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(simu->st_sim),TRUE);
+    
 }
 
 
 GtkWidget* build_menubar(Simu* simu)
 {
-    GtkWidget* item;
     simu->menubar = gtk_menu_bar_new();
 
     simu->fileMenu = gtk_menu_item_new_with_label("File");
@@ -225,13 +249,7 @@ GtkWidget* build_menubar(Simu* simu)
     gtk_menu_shell_append(GTK_MENU_SHELL(simu->menu), simu->quitMi);
 
     build_simulation_menu(simu);
-
-    item = gtk_menu_item_new_with_label("One step");
-    gtk_widget_show(item);
-    gtk_menu_shell_append(GTK_MENU_SHELL(simu->menubar), item);
-    g_signal_connect(G_OBJECT(item), "activate", G_CALLBACK(action_one_bis), simu);   
-
-
+    
     return simu->menubar;
 }    
 
@@ -292,6 +310,7 @@ int main (int    argc,	  char **argv)
 {
     Simu* simu = NULL;
     int Np = 100, LenEvArr = 4 * Np + Np * ( Np - 1 ) + 1;
+    GtkWidget* item;
     
     srand(time(NULL)); //inititalize random numbers -- to find always the same value // you can replace "1" by time(NULL)
     //srand48(1);
@@ -325,6 +344,16 @@ int main (int    argc,	  char **argv)
     simu->menubar = build_menubar(simu);
     gtk_box_pack_start(GTK_BOX(simu->hbox_menu_status), simu->menubar, FALSE, FALSE, 0);
 
+    item = gtk_button_new_with_label("One step");
+    gtk_widget_show(item);
+    gtk_box_pack_start(GTK_BOX(simu->hbox_menu_status),item, FALSE, FALSE, 0);    
+    g_signal_connect(G_OBJECT(item), "button-press-event", G_CALLBACK(action_one_bis), simu);   
+    
+    item = gtk_button_new_with_label ("Stop");
+    gtk_widget_show(item);
+    gtk_box_pack_start(GTK_BOX(simu->hbox_menu_status),item, FALSE, FALSE, 0);
+    g_signal_connect(G_OBJECT(item), "button-press-event", G_CALLBACK(action_stop_bis), simu);   
+    
     simu->statusbar = gtk_statusbar_new();
     gtk_box_pack_end(GTK_BOX(simu->hbox_menu_status), simu->statusbar, TRUE, TRUE, 0);
     
@@ -357,8 +386,7 @@ int main (int    argc,	  char **argv)
     gtk_window_set_title(GTK_WINDOW(simu->window), "MD Simulation");
     gtk_widget_show_all(simu->window);
 
-
-    simu->simu_id = g_timeout_add (1000/simu->FPS, simu_idle,(gpointer)simu);
+    simu->simu_id = g_idle_add_full(G_PRIORITY_LOW, simu_idle, (gpointer)simu, NULL);
 
     gtk_main();
     

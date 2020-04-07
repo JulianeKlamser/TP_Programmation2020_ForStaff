@@ -65,6 +65,25 @@ void TestMoveParticles (Simu *simu, double dt)
 }
 
 
+gboolean one_simulation_iteration(Simu* simu)
+{
+    //This is where you need to insert your code
+    //find future collision using exact calculations of collision times
+  
+    TestMoveParticles(simu, simu->dT);
+    if (1) // animation condition
+      {
+       // gtk_widget_queue_draw is called when ever you need to refresh the screen
+       // send_to_status allows you to display stuff in the status bar
+       // for instance the step number
+       send_to_status(simu,"general","Step %d particule Nb. %d\n",simu->step++,simu->n_prt);
+       gtk_widget_queue_draw (simu->darea);
+      }
+     return TRUE;
+}
+
+
+
 // This is the function which actually perform the simulation that you should
 // modify. This function is called by the GtK main function with a periodicity
 // equal to 1000/FPS in ms.
@@ -97,17 +116,11 @@ gboolean simu_idle(gpointer user_data)          // a pointer to the user_data
       {
 	//This is where you need to insert your code
 	//find future collision using exact calculations of collision times
-
-	TestMoveParticles(simu, simu->dT);
-
-	// gtk_widget_queue_draw is called when ever you need to refresh the screen
-	// send_to_status allows you to display stuff in the status bar
-	// for instance the step number
-	send_to_status(simu,"general","Step %d\n",simu->step++);
-	gtk_widget_queue_draw (simu->darea);
+	one_simulation_iteration(simu);
+	if (simu->FPS <= 500) g_usleep(1000000/simu->FPS);
 	if (simu->run == 1)
 	  { // il you are in the one step simulation mode, you have done your step
-	    // otherwise in continuous modeyou skip this part 
+	    // otherwise in continuous modeyou skip this part
 	    // thus you switch back to stop mode and update menus state
 	    simu->run = 0;
 	    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(simu->cont_sim),FALSE);
@@ -115,10 +128,11 @@ gboolean simu_idle(gpointer user_data)          // a pointer to the user_data
 	    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(simu->st_sim),TRUE);
 	  }
       }
-    
-
     return TRUE;
 }
+
+
+
 
 // This function is called whenever you press the "Stop" menu button
 // GtK imposes the two parameters: widget and userdata
@@ -164,6 +178,38 @@ void action_cont(GtkWidget *widget, gpointer user_data)
     simu->run = 2;
     
 }
+
+
+// This function is called whenever you press the "N steps" menu button
+// GtK imposes the two parameters: widget and userdata
+void action_N(GtkWidget *widget, gpointer user_data)
+{
+    Simu* simu = NULL;
+    int i;
+    static double N = 10, dt = 0;
+    gulong microseconds;
+
+    (void)widget;
+    if (user_data == NULL) return;
+    // the first thing that we do is to cast user_data to the Simu* type
+    simu = (Simu*)user_data;
+    // now we switch the parameter run to 1
+    i = win_scanf("Number of seconds to perform simulation %lf",&N);
+    if (i == WIN_CANCEL) return;
+    GTimer *tim = g_timer_new ();
+    for(i= 0, g_timer_start(tim) ; (dt = g_timer_elapsed (tim,&microseconds)) < N; i++)
+      {// do one iteration
+	one_simulation_iteration(simu);
+	// display state
+	send_to_status(simu,"general","Step %d particule Nb. %d iter%d %g/%g\n",simu->step++,simu->n_prt,i,dt,N);
+	// treat for user events
+	g_main_context_iteration (NULL,FALSE);
+      }
+    g_timer_destroy (tim);
+    return;
+}
+
+
 
 // This function is called whenever you press the "change parameters" menu button
 // GtK imposes the two parameters: widget and userdata
@@ -331,6 +377,12 @@ GtkWidget* build_simulation_menu(Simu* simu)
     gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item),FALSE);
     gtk_check_menu_item_set_draw_as_radio(GTK_CHECK_MENU_ITEM(item),TRUE);
 
+    // we attach the N iterations button
+    item = gtk_menu_item_new_with_label("Run for N iterations");
+    gtk_widget_show(item);
+    gtk_menu_shell_append(GTK_MENU_SHELL(simu->menu), item);
+    g_signal_connect(G_OBJECT(item), "activate", G_CALLBACK(action_N), simu);
+        
     // we draw a line separator
     item = gtk_separator_menu_item_new ();
     gtk_widget_show(item);
