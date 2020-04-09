@@ -112,5 +112,9 @@ int main(void) {
     free(RandomDoubles);//<-------- FREE : DO Not forget me ;)
     //END ------------ random doubles in the intervall (-2.5,2.5) ------------
     
+    printf("Insert a positive integer number to get instructions how to plot the saved data!\n");
+    Ntotal = ReadUnsigendIntegerFromKeyboard ();
+    printf("*************************************************************\n*************************************************************\n--------> Plotting instructions:\nYou can plot the files by typing now the following command in your terminal.\n\ngnuplot GnuScript.plt\n\nGnuScript.plt is a gnuplot script. You can modify the script GnuScript.plt in your code editor (maybe: right click -> open with -> your code editor).\n\nFor windows 7/8 (10): You downloaded a graphical version of gnuplot, which is also available for Windows 10 (see InstallationWindows10.pdf chapter 6). You have to open the application, then click on the symbol representing a folder with a red star and navigate INSIDE the directory with the data and GnuScript.plt. Then click on the symbol representing a folder with a black arrow and select GnuScript.plt.\n\n");
+    
     return 0;
 }
