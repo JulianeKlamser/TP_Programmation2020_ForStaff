@@ -9,15 +9,15 @@ set xlabel "array index" font ",15"
 # First plot - just a line
 set output "./Plot1.png" #output to any filename.png you want
 set ylabel "Random integer number" font ",15"
-plot "./RandomDoubleList.dat" with lines linestyle 1 title 'Generated from RandomInt0To50.dat'
+plot "./RandomInt0To50.dat" with lines linestyle 1 title 'Generated from RandomInt0To50.dat'
 
 # Second plot  - a line with plot markers
 set output "./Plot2.png"
 set ylabel "Random double number" font ",15"
-plot "./RandomInt0To50.dat" with linespoints linestyle 2 title "Generated from RandomDoubleList.dat"
+plot "./RandomDoubleList.dat" with linespoints linestyle 2 title "Generated from RandomDoubleList.dat"
 
 # Third plot - first and second plot together in one image
 set output "./Plot3.png"
 set ylabel "Random numbers" font ",15"
-plot "./RandomInt0To50.dat" with linespoints linestyle 2 title "Generated from RandomDoubleList.dat", \
-    "./RandomDoubleList.dat" with lines linestyle 1 title 'Generated from RandomInt0To50.dat'
+plot "./RandomDoubleList.dat" with linespoints linestyle 2 title "Generated from RandomDoubleList.dat", \
+    "./RandomInt0To50.dat" with lines linestyle 1 title 'Generated from RandomInt0To50.dat'
