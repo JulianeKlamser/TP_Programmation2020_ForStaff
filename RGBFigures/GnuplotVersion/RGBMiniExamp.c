@@ -62,7 +62,7 @@ int main(){
             PixelData[x][y].Blue = 0; //no blue
         }
         snprintf(FileName, FileNameLength, "./DataChangedImage_%d.txt", pictureID++);
-        WriteImageDataToFile ( FileName, PixelData, TotalPixX, TotalPixY);
+        TESTopen = WriteImageDataToFile ( FileName, PixelData, TotalPixX, TotalPixY);
         if ( TESTopen == 0) {
             printf("\nFile %s could not be opened.\nCode is terminated\n\n", FileName);
             return 0;
