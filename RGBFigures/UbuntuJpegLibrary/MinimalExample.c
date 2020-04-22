@@ -8,6 +8,10 @@ int main(void){
     int TotPixX = 200, TotPixY = 300; // total number of pixel in x and y direction
     int Red = 255, Green = 255, Blue = 255; // full intensity on red, green and blue
     long int ImageAddress = JPEG_init_image ( TotPixX, TotPixY, Red, Green, Blue);
+    if (ImageAddress == 0) {
+        printf("initialisation image impossible\nterminate code\n");
+        return 0;
+    }
     
     // Example of how to modify the image
     int pixIndexX, pixIndexY = 0.1 * TotPixY;

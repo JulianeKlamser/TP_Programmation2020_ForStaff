@@ -28,8 +28,8 @@ void initparticles( Particle *p, int np, double Radius, double ParticleMass, dou
     p[i].Mass = ParticleMass;// choose unit mass for the beginning
     p[i].Rad = Radius; // coose unit diameter = 2.* Radius for the beginning
       
-    p[i].x = Lmin_x +2*p[i].Rad + (Lmax_x-Lmin_x-2*p[i].Rad)*drand48(); //random positions for intial condition
-    p[i].y = Lmin_y +2*p[i].Rad + (Lmax_y-Lmin_y-2*p[i].Rad)*drand48();
+    p[i].x = Lmin_x + p[i].Rad + (Lmax_x-Lmin_x-2*p[i].Rad)*drand48(); //random positions for intial condition
+    p[i].y = Lmin_y + p[i].Rad + (Lmax_y-Lmin_y-2*p[i].Rad)*drand48();
 
 
     p[i].vx = 0;// choose random speeds too using drand48();

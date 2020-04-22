@@ -10,26 +10,34 @@ typedef struct{
     int Blue;
 }RGB;
 
-void WriteImageDataToFile (char *FileName, RGB ImageData[][TotalPixY], int TotPixX, int TotPixY){
+int WriteImageDataToFile (char *FileName, RGB ImageData[][TotalPixY], int TotPixX, int TotPixY){
+    int TESTopen = 1; // 1 means successful
     FILE *fp;
     fp = fopen( FileName, "w"); //open file in write ("w") modus
-    for (int x = 0; x < TotPixX; x++) {
-        for (int y = 0; y < TotPixY; ++y) {
-            //write to file
-            fprintf(fp, "%d %d %d %d %d\n",
-                    x,
-                    y,
-                    ImageData[x][y].Red,
-                    ImageData[x][y].Green,
-                    ImageData[x][y].Blue);
-        }
+    if (fp == NULL ) { //file could not be opened
+        TESTopen = 0; // zero means NOT successful
     }
-    fclose(fp);//close File
+    else{
+        for (int x = 0; x < TotPixX; x++) {
+            for (int y = 0; y < TotPixY; ++y) {
+                //write to file
+                fprintf(fp, "%d %d %d %d %d\n",
+                        x,
+                        y,
+                        ImageData[x][y].Red,
+                        ImageData[x][y].Green,
+                        ImageData[x][y].Blue);
+            }
+        }
+        fclose(fp);//close File
+    }
+    return TESTopen;
 }
 
 int main(){
-  
-    RGB PixelData[TotalPixX][TotalPixY];
+    int TESTopen = 1; // 1 means successful
+    
+    RGB PixelData[TotalPixX][TotalPixY]; // this is a 2D array (not of type double or int but) of type RGB
     
     for (int x = 0; x < TotalPixX; x++) {
         for (int y = 0; y < TotalPixY; ++y) {
@@ -39,7 +47,11 @@ int main(){
         }
     }
     char FileName[FileNameLength] = "./DataInitialImage.txt";
-    WriteImageDataToFile ( FileName, PixelData, TotalPixX, TotalPixY);
+    TESTopen = WriteImageDataToFile ( FileName, PixelData, TotalPixX, TotalPixY);
+    if ( TESTopen == 0) {
+        printf("\nFile %s could not be opened.\nCode is terminated\n\n", FileName);
+        return 0;
+    }
       
     // draw red horizontal lines and save pictures
     int pictureID = 0;
@@ -50,7 +62,11 @@ int main(){
             PixelData[x][y].Blue = 0; //no blue
         }
         snprintf(FileName, FileNameLength, "./DataChangedImage_%d.txt", pictureID++);
-        WriteImageDataToFile ( FileName, PixelData, TotalPixX, TotalPixY);
+        TESTopen = WriteImageDataToFile ( FileName, PixelData, TotalPixX, TotalPixY);
+        if ( TESTopen == 0) {
+            printf("\nFile %s could not be opened.\nCode is terminated\n\n", FileName);
+            return 0;
+        }
     }
   
     return 0;
